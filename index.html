@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spin The Wheel App</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+
+  <!-- full-screen confetti -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <button id="manageBtn" title="Manage prizes" disabled>⚙ Manage Prizes</button>
+
+  <div class="center">
+    <canvas id="wheelCanvas" aria-label="Prize wheel"></canvas>
+
+ 
+
+    <div class="controls" style="text-align:center;">
+      <input id="playerName" type="text" placeholder="Enter your name" />
+    
+    <div style="width:65px;padding: 14px 28px;
+    border-radius: 10px;
+    border: 0;
+    
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;"
+    ></div>
+
+    </div>
+<div class="controls">
+     
+      <input id="MobileNo" type="text" placeholder="Enter your UPI" />
+
+     <button id="spinBtn">🎡 SPIN</button>
+ </div>
+
+  </div>
+
+  <!-- Result modal -->
+  <div id="resultModal" class="modal" aria-hidden="true">
+    <div class="content" role="dialog" aria-modal="true">
+      <h2 id="winnerText">You Won!</h2>
+      <div id="prizeText">🎁 Prize: —</div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:14px">
+        <button id="playAgainBtn" style="background:#1976d2;color:#fff;padding:10px 14px;border-radius:8px;border:0;cursor:pointer">🎁 Redeem Now</button>
+        <button id="closeResultBtn" style="background:#9e9e9e;color:#fff;padding:10px 14px;border-radius:8px;border:0;cursor:pointer">✖ Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manage prizes modal -->
+  <div id="manageModal" class="modal" aria-hidden="true">
+    <div class="content">
+      <h2>Manage Prizes</h2>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <input id="newPrizeInput" placeholder="New prize (e.g. $5 Gift)" />
+        <button id="addPrizeBtn" style="background:#2f80ed;color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer">Add</button>
+      </div>
+      <ul id="prizeList"></ul>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button id="savePrizeBtn" style="background:#2f80ed;color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer">Save</button>
+        <button id="closeManageBtn" style="background:#ef5350;color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer">Close</button>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

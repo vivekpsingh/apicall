@@ -1,0 +1,81 @@
+:root { --modal-z:1000; --confetti-z:900; --manageBtn-z:1100; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:linear-gradient(-45deg,#fbc2eb,#a6c1ee,#c6ffdd,#fbd3e9);
+  background-size:400% 400%;
+  animation:gradientBG 15s ease infinite;
+}
+@keyframes gradientBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* top-left manage button */
+#manageBtn{
+  position:fixed;
+  top:14px; left:14px;
+  z-index:var(--manageBtn-z);
+  background:#2f80ed; color:#fff; border:0;
+  padding:10px 12px; border-radius:8px; cursor:pointer;
+  box-shadow:0 6px 18px rgba(47,128,237,.18); font-weight:600;
+}
+
+.center { display:flex; flex-direction:column; align-items:center; gap:12px; padding:14px; z-index:10; }
+
+/* wheel canvas */
+#wheelCanvas {
+  width: min(520px, 92vw);
+  height: auto;
+  border-radius:50%;
+  border:10px solid rgba(0,0,0,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  background:#fff;
+  display:block;
+}
+
+/* controls */
+.controls { display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; }
+#playerName { padding:10px 12px; border-radius:8px; border:1px solid rgba(0,0,0,.12); font-size:15px; min-width:200px; }
+#MobileNo { padding:10px 12px; border-radius:8px; border:1px solid rgba(0,0,0,.12); font-size:15px; min-width:200px; }
+
+#spinBtn {
+  padding:14px 28px; border-radius:10px; border:0;
+  background:#ff6b6b; color:#fff; font-weight:800; font-size:18px;
+  cursor:pointer;
+}
+#spinBtn:disabled { opacity:.6; cursor:not-allowed; }
+
+/* modal */
+.modal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.55); visibility:hidden; opacity:0;
+  transition:opacity .25s ease, visibility .25s; padding:12px; z-index:var(--modal-z);
+}
+.modal.active { visibility:visible; opacity:1; }
+.modal .content { width:90%; max-width:480px; background:#fff; border-radius:12px; padding:18px; box-shadow:0 18px 50px rgba(0,0,0,.18); transform:scale(.98); transition:transform .2s; text-align:center; }
+.modal.active .content { transform:scale(1); }
+
+#winnerText { font-size:22px; margin:6px 0; color:#222; text-align:center; }
+#prizeText { font-size:20px; margin:6px 0; color:#e91e63; text-align:center; font-weight:800; }
+
+/* prize manager list */
+#prizeList { list-style:none; padding:0; margin-top:10px; }
+#prizeList li { display:flex; gap:8px; align-items:center; padding:8px; background:#fafafa; border-radius:8px; margin-bottom:8px; }
+#prizeList li input { flex:1; padding:8px; border-radius:6px; border:1px solid #eee; }
+
+/* confetti */
+#confettiCanvas { position:fixed; inset:0; pointer-events:none; z-index:var(--confetti-z); }
+
+@media (max-width:480px){
+   #MobileNo { min-width:140px; }
+
+  #playerName { min-width:140px; }
+  #spinBtn { font-size:16px; padding:12px 20px; }
+}
